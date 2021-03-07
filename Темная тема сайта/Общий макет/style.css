@@ -1,0 +1,71 @@
+/* Сброс */
+* { margin: 0; padding: 0; }
+
+:root
+{
+    
+}
+
+/* Фон + Глобальные правила */
+body
+{
+    background: #F0F0F0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Контент */
+main
+{
+    max-width: 400px;
+
+    background: #fff;
+    border: 3px solid #cecece;
+    border-radius: 5px;
+
+    padding: 30px;
+}
+
+/* Заголовок */
+h1
+{
+    color: #009FF4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Текст */
+p
+{
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* Кнопка "Переключить!" */
+button
+{
+    display: block;
+
+    color: white;
+    background: #F44336;
+    
+    border: none;
+    border-radius: 5px;
+
+    letter-spacing: .05em;
+    font-size: 18px;
+    font-family: "Open Sans";
+    font-weight: 600;
+    text-transform: uppercase;
+
+    padding: 10px 20px;
+
+    margin: 0 auto;
+    margin-top: 30px;
+}

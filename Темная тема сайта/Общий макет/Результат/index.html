@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Общий макет</title>
+        <link rel="stylesheet" href="style.css">
+
+        <meta name="color-scheme" content="">
+        <meta name="theme-color" content="">
+    </head>
+    <body>
+        <script>
+            (function()
+            {
+                var preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches === true;
+                var preferTheme = (preferDark ? 'dark' : 'light');
+
+                var theme = localStorage.getItem('theme');
+
+                if (theme === 'null')
+                    theme = preferTheme;
+                
+                setTheme(theme);
+            })();
+
+            function setTheme(theme)
+            {
+                document.body.classList.toggle('theme--dark', (theme === 'dark'));
+
+                var themeColors = { light: '#ffffff', dark: '#333333' }
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColors[theme]);
+                
+                document.querySelector('meta[name="color-scheme"]').setAttribute('content', theme);
+
+                localStorage.setItem('theme', theme);
+            }
+
+            window.addEventListener('load', function()
+            {
+                document.getElementById('switch-theme').addEventListener('click', function()
+                {
+                    var theme = localStorage.getItem('theme');
+                    setTheme((theme === 'dark' ? 'light' : 'dark'));
+                });
+            });
+        </script>
+
+        <main>
+            <h1>
+                <span class="light">Светлая</span>
+                <span class="dark">Темная</span>
+                тема
+            </h1>
+    
+            <p>Пожалуй, лучший канал на свете! Разрабатываем сайты, изучаем языки программирования, создаем игры...</p>
+
+            <p>А скоро будут ролики и по математике! Будем глубоко вникать в суть понятий и строго доказывать теоремы.</p>
+
+            <button id="switch-theme">Переключить!</button>
+        </main>
+    </body>
+</html>

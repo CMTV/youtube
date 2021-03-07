@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Картинки</title>
+        <link rel="stylesheet" href="style.css">
+
+        <meta name="color-scheme" content="">
+        <meta name="theme-color" content="">
+    </head>
+    <body>
+        <script>
+            (function()
+            {
+                var preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches === true;
+                var preferTheme = (preferDark ? 'dark' : 'light');
+
+                var theme = localStorage.getItem('theme');
+
+                if (theme === 'null')
+                    theme = preferTheme;
+                
+                setTheme(theme);
+            })();
+
+            function setTheme(theme)
+            {
+                document.body.classList.toggle('theme--dark', (theme === 'dark'));
+
+                var themeColors = { light: '#ffffff', dark: '#333333' }
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColors[theme]);
+                
+                document.querySelector('meta[name="color-scheme"]').setAttribute('content', theme);
+
+                localStorage.setItem('theme', theme);
+            }
+
+            window.addEventListener('load', function()
+            {
+                document.getElementById('switch-theme').addEventListener('click', function()
+                {
+                    var theme = localStorage.getItem('theme');
+                    setTheme((theme === 'dark' ? 'light' : 'dark'));
+                });
+            });
+        </script>
+
+        <main>
+            <button id="switch-theme">Переключить!</button>
+
+            <figure>
+                <img src="img-raster.jpg" class="dark-mute">
+                <figcaption>Растровое изображение</figcaption>
+            </figure>
+
+            <figure>
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="#313132" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
+                </svg>
+                <figcaption>Векторное изображение (внедрено)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="img-vector.svg" class="dark-invert">
+                <figcaption>Векторное изображение (через <code>img</code>)</figcaption>
+            </figure>
+        </main>
+    </body>
+</html>

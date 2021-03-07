@@ -1,0 +1,96 @@
+/* Светлая тема (значения по умолчанию) */
+body
+{
+    --color-bg: #f0f0f0;
+    --color-bg-content: #fff;
+    --color-bg-button: #F44336;
+    --color-txt-h1: #009FF4;
+    --color-txt-p: #333333;
+    --color-content-border: #cecece;
+}
+
+/* Темная тема */
+body.theme--dark
+{
+    --color-bg: #1E1E1E;
+    --color-bg-content: #313132;
+    --color-bg-button: #AA2E25;
+    --color-txt-h1: #ab47bc;
+    --color-txt-p: #C3C3C3;
+    --color-content-border: #444446;
+}
+
+/* ================================================================ */
+
+/* Сброс */
+* { margin: 0; padding: 0; }
+
+/* Фон + Глобальные правила */
+body
+{
+    background: var(--color-bg);
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Контент */
+main
+{
+    max-width: 400px;
+
+    background: var(--color-bg-content);
+    border: 3px solid var(--color-content-border);
+    border-radius: 5px;
+
+    padding: 30px;
+}
+
+/* Заголовок */
+h1
+{
+    color: var(--color-txt-h1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body:not(.theme--dark) h1 .dark { display: none; }
+body.theme--dark h1 .light { display: none; }
+
+/* Текст */
+p
+{
+    color: var(--color-txt-p);
+    margin-bottom: 15px;
+}
+
+/* Кнопка "Переключить!" */
+button
+{
+    display: block;
+
+    color: white;
+    background: var(--color-bg-button);
+    
+    cursor: pointer;
+    outline: none;
+
+    border: none;
+    border-radius: 5px;
+
+    letter-spacing: .05em;
+    font-size: 18px;
+    font-family: "Open Sans";
+    font-weight: 600;
+    text-transform: uppercase;
+
+    padding: 10px 20px;
+
+    margin: 0 auto;
+    margin-top: 30px;
+}
