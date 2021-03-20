@@ -1,0 +1,23 @@
+-
+    let toc = {
+        art1: 'Статья 1',
+        cat1: {
+            art2: 'Статья 2',
+            art3: 'Статья 3',
+            cat2: {
+                art4: 'Статья 4'
+            }
+        },
+        art5: "Статья 5"
+    }
+
+mixin genTOC(toc, catName = null)
+    ol(title = catName)
+        each value, key in toc
+            if (typeof value === 'string')
+                li= value
+            else
+                +genTOC(value, key)
+
+h2 Содержание учебника
++genTOC(toc)

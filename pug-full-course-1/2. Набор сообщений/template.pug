@@ -1,0 +1,27 @@
+-
+    let data = [
+        {
+            name: 'Радько Петр',
+            time: '20 Марта 2021',
+            msg: 'Люблю программирование и математику!<br>Гениями не рождаются, ими становятся!'
+        },
+        {
+            name: 'Николай Нагибин',
+            time: '4 Апреля 2019',
+            msg: 'Как этой штукой вообще пользоваться?!'
+        },
+        {
+            name: 'Иванов Иван',
+            time: '10 Мая 2016',
+            msg: 'Люблю шутить про мамаш!', banned: true
+        }
+    ];
+
+each dataItem in data
+    .message(class={ banned: dataItem.banned })
+        img.avatar(src=`https://picsum.photos/seed/${dataItem.name}/64`)
+        .info
+            .head
+                a.name(href="htts://vk.com/math.head")= dataItem.name
+                .time= dataItem.time
+            .content!= dataItem.msg

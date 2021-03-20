@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body
+{
+    font-family: "Open Sans";
+    font-size: .85rem;
+    background: #edeef0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message
+{
+    margin-top: 30px;
+    padding: 15px;
+    
+    width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+}
+
+.message .avatar    { border-radius: 5px; }
+.message .info      { flex: 1; }
+
+.message .head
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.message .head .name
+{
+    text-decoration: none;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.message .head .name:hover { text-decoration: underline; }
+
+.message .head .time
+{
+    color: #949596;
+    font-size: 90%;
+}

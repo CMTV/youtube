@@ -1,0 +1,15 @@
+-
+    let colors = {
+        red:        'Красный',
+        orange:     'Оранжевый',
+        yellow:     'Желтый',
+        green:      'Зеленый',
+        lightblue:  'Голубой',
+        blue:       'Синий',
+        violet:     'Фазан'
+    }
+
+.colors
+    - let i = 1;
+    each cValue, cKey in colors
+        .color-box(style = { background: cKey }, title = `Color ${i++}`)= cValue.toUpperCase()
